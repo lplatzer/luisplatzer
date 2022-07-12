@@ -1,0 +1,36 @@
+{
+    "name": "luisplatzer",
+    "version": "0.1.0",
+    "private": true,
+    "scripts": {
+        "dev": "next dev",
+        "build": "next build",
+        "start": "next start",
+        "lint": "next lint",
+        "test": "jest",
+        "cypress": "cypress open"
+    },
+    "dependencies": {
+        "@emotion/cache": "latest",
+        "@emotion/react": "latest",
+        "@emotion/server": "latest",
+        "@emotion/styled": "latest",
+        "@mui/material": "latest",
+        "@mui/icons-material": "latest",
+        "next": "latest",
+        "react": "latest",
+        "react-dom": "latest"
+},
+    "devDependencies": {
+        "@types/node": "latest",
+        "@types/react": "latest",
+        "eslint": "latest",
+        "eslint-config-next": "latest",
+        "typescript": "latest",
+        "jest": "latest",
+        "jest-environment-jsdom": "latest",
+        "@testing-library/react": "latest",
+        "@testing-library/jest-dom": "latest",
+        "cypress": "latest"
+    }
+}
