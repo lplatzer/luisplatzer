@@ -41,14 +41,15 @@ export default function Layout({children}) {
                     {children}
                 </Box>
             </Container>
-                <Box
-                component="footer"
-                sx={{
-                py: 3,
-                px: 2,
-                mt: 'auto',
-                }}
-                >
+            <Box
+            component="footer"
+            sx={{
+            py: 3,
+            px: 2,
+            mt: 'auto',
+            }}
+            >
+                <Container maxWidth="xl">
                     <Toolbar variant="regular" sx={{borderTop: 1, borderColor: 'divider'}}>
                         <Typography variant="body2" color="text.secondary" align="left">
                             <Link href="/imprint">
@@ -68,7 +69,8 @@ export default function Layout({children}) {
                             </Link>
                         </Typography>
                     </Toolbar>
-                </Box>
+                </Container>
+            </Box>
         </Box>
     );
 }
