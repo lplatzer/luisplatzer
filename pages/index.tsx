@@ -1,19 +1,26 @@
 import { Card, Typography, Box } from "@mui/material";
 import Image from "next/image";
 import Layout from "../src/components/Layout";
-import personalPic from "../public/vercel.svg";
 import Link from "../src/components/Link";
+
+import personalPic from "../public/images/platzer_luis_cropped.jpg";
 
 export default function Home({Layout}){
     return(
-            <Box sx={{
-                flexDirection: 'row'
+            <Box
+                component="main"
+                sx={{
+                flexDirection: 'row',
+                display: 'flex'
             }}>
                 <Image
                     src={personalPic}
                 />
                 {/* TODO: add image of me on the left. */}
-                <Box>
+                <Box
+                    sx={{
+                        m: 2,
+                    }}>
                     <Typography variant="h1" component="h1">
                         Hi. I'm Luis Platzer.
                     </Typography>
