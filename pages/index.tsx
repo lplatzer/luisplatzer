@@ -1,19 +1,20 @@
 import { Card, Typography, Box } from "@mui/material";
 import Image from "next/image";
-import Layout from "../src/components/Layout";
 import Link from "../src/components/Link";
 
 import personalPic from "../public/images/platzer_luis_cropped.jpg";
 
-export default function Home({Layout}){
+export default function Home(){
     return(
-            <Box
+    <Box
                 component="main"
                 sx={{
                 flexDirection: 'row',
                 display: 'flex'
-            }}>
-                <Image
+        }}>
+        {/*could be exchanged for grid container for more granular control of sizing*/}
+
+        <Image
                     src={personalPic}
                 />
                 {/* TODO: add image of me on the left. */}
