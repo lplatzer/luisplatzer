@@ -5,10 +5,10 @@ import * as yup from "yup";
 
 const ContactSchema = yup.object().shape({
     name: yup.string()
-    .required(),
+    .required('How should I call you?'),
     email: yup.string()
     .email()
-    .required(),
+    .required('Email is required'),
     message: yup.string()
     .required()
 })
