@@ -1,7 +1,7 @@
 import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Paper, Typography, Box } from "@mui/material";
 import Link from "../../src/components/Link";
 import Image from "next/image";
-import blogPostPic from "../../public/vercel.svg";
+import blogPostPic from "../../public/images/fahmi-fakhrudin-nzyzAUsbV0M-unsplash.jpg";
 
 function MainFeaturedPost(){
     return(
@@ -16,7 +16,7 @@ function MainFeaturedPost(){
             backgroundPosition: 'center',
             backgroundImage: blogPostPic,
         }}>
-             <Grid container>
+            <Grid container>
                 <Grid item md={6}>
                     <Box
                     sx={{
@@ -80,10 +80,6 @@ function FeaturedPost(){
 export default function Blog(){
     return(
         <Container>
-            <Typography variant="h5" component="h1">
-                Blog
-            </Typography>
-            <MainFeaturedPost/>
             <Grid container spacing={2} sx={{ mt: 3}}>
             <FeaturedPost/>
             <FeaturedPost/>

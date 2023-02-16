@@ -24,15 +24,15 @@ export default function Layout({children}) {
                     <Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/">
                     Home
                     </Button>
-                    <Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/about">
-                    About Me
-                    </Button>
-                    <Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/blog">
-                    Blog
-                    </Button>
-                    <Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/contact">
-                    Contact
-                    </Button>
+                    {/*<Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/about">*/}
+                    {/*About Me*/}
+                    {/*</Button>*/}
+                    {/*<Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/blog">*/}
+                    {/*Blog*/}
+                    {/*</Button>*/}
+                    {/*<Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/contact">*/}
+                    {/*Contact*/}
+                    {/*</Button>*/}
                     <IconButton href="https://github.com/lplatzer">
                     <GitHubIcon/>
                     </IconButton>
