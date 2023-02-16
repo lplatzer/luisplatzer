@@ -65,8 +65,8 @@ function FeaturedPost(){
                             <div style={{ position: 'relative', width: '100%', height: '100%' }}>
                                 <Image
                                 src={blogPostPic}
-                                layout="fill"
-                                objectFit="cover"
+                                alt="blog post header image"
+                                style={{ objectFit: 'cover' }}
                                 />
                             </div>
                         </CardMedia>
