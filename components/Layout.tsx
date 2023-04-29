@@ -30,6 +30,9 @@ export default function Layout({children}) {
                     {/*<Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/blog">*/}
                     {/*Blog*/}
                     {/*</Button>*/}
+                    <Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/coffee-recipes">
+                    Coffee Recipes
+                    </Button>
                     {/*<Button sx={{margin: '1em'}} variant="text" disableElevation component={Link} href="/contact">*/}
                     {/*Contact*/}
                     {/*</Button>*/}
@@ -52,7 +55,7 @@ export default function Layout({children}) {
                 <Container maxWidth="xl">
                     <Toolbar variant="regular" sx={{borderTop: 1, borderColor: 'divider'}}>
                         <Typography variant="body2" color="text.secondary" align="left">
-                            <Link href="/imprint">
+                            <Link href="/pages/imprint">
                             Imprint
                             </Link>
                         </Typography>
@@ -64,7 +67,7 @@ export default function Layout({children}) {
                             {new Date().getFullYear()}.
                         </Typography>
                         <Typography variant="body2" color="text.secondary" align="right">
-                            <Link href="/privacy-policy">
+                            <Link href="/pages/privacy-policy">
                             Privacy Policy
                             </Link>
                         </Typography>
