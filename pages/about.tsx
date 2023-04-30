@@ -1,7 +1,7 @@
 import * as React from 'react';
 import {Card, Typography, Box, Accordion, AccordionSummary, AccordionDetails} from "@mui/material";
 import Image from "next/image";
-import Link from "../src/components/Link";
+import Link from "../components/Link";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import personalPic from "../public/images/platzer_luis_cropped.jpg";
 

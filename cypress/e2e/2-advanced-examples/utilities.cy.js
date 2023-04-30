@@ -32,7 +32,7 @@ context('Utilities', () => {
       // get the dataUrl string for the javascript-logo
       return Cypress.Blob.imgSrcToDataURL('https://example.cypress.io/assets/img/javascript-logo.png', undefined, 'anonymous')
       .then((dataUrl) => {
-        // create an <img> element and set its src to the dataUrl
+        // create an <img> element and set its utils to the dataUrl
         let img = Cypress.$('<img />', { src: dataUrl })
 
         // need to explicitly return cy here since we are initially returning

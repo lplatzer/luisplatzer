@@ -1,8 +1,8 @@
 import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Paper, Typography, Box } from "@mui/material";
-import Link from "../../src/components/Link";
+import Link from "../../components/Link";
 import Image from "next/image";
-import blogPostPic from "../../public/images/fahmi-fakhrudin-nzyzAUsbV0M-unsplash.jpg";
 
+// TODO: add getStaticProps ..Paths, etc. and create dynamic routes for all blog posts
 function MainFeaturedPost(){
     return(
         <Paper
@@ -14,7 +14,7 @@ function MainFeaturedPost(){
             backgroundSize: 'cover',
             backgroundRepeat: 'noRepeat',
             backgroundPosition: 'center',
-            backgroundImage: blogPostPic,
+            // backgroundImage: blogPostPic,
         }}>
             <Grid container>
                 <Grid item md={6}>
@@ -60,16 +60,16 @@ function FeaturedPost(){
                         <Typography variant="subtitle1" color="primary">
                             Continue reading..
                         </Typography>
-                        <CardMedia>
-                            {/* Workaround to use the Next image component as a Card Media */}
-                            <div style={{ position: 'relative', width: '100%', height: '100%' }}>
-                                <Image
-                                src={blogPostPic}
-                                alt="blog post header image"
-                                style={{ objectFit: 'cover' }}
-                                />
-                            </div>
-                        </CardMedia>
+                        {/*<CardMedia>*/}
+                        {/*    /!* Workaround to use the Next image component as a Card Media *!/*/}
+                        {/*    <div style={{ position: 'relative', width: '100%', height: '100%' }}>*/}
+                        {/*        <Image*/}
+                        {/*        utils={blogPostPic}*/}
+                        {/*        alt="blog post header image"*/}
+                        {/*        style={{ objectFit: 'cover' }}*/}
+                        {/*        />*/}
+                        {/*    </div>*/}
+                        {/*</CardMedia>*/}
                     </CardContent>
                 </Card>
             </CardActionArea>
