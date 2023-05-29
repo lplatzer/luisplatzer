@@ -31,8 +31,8 @@ export default function CoffeePage({ coffeeData }) {
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
         setExpanded(isExpanded ? panel : false);
     };
-
-
+    const blendData = [];
+    console.log(blendData);
     const filterPage = (
         <Box>
             <Typography variant="h5" component="h5">
@@ -402,15 +402,16 @@ export default function CoffeePage({ coffeeData }) {
             </Accordion>
         </Box>
     )
-    console.log(coffeeData)
     const espressoPage = (
         <Box>
             <Stack direction="row" spacing={1}>
                 {/*TODO: map array items with proper formatting*/}
-                <Chip label={`Origin: ${coffeeData.origin.country}, ${coffeeData.origin.detail}`}/>
+                {/*TODO: join origin country and region, add spacer between each combo*/}
+                {Array.isArray(coffeeData.origin.country) === true ? <Chip label={`Origin: ${coffeeData.origin.country.join(', ')}, ${coffeeData.origin.detail.join(', ')}`}/> : <Chip label={`Origin: ${coffeeData.origin.country}, ${coffeeData.origin.detail}`}/>}
+                {Array.isArray(coffeeData.origin.country) === true ? <Chip label={`Origin: ${blendData.join(', ')}`}/> : <Chip label={`Origin: ${coffeeData.origin.country}, ${coffeeData.origin.detail}`}/>}
                 <Chip label={`Washing station: ${coffeeData.origin.station}`}/>
-                <Chip label={`Producer: ${coffeeData.producer}`}/>
-                <Chip label={`Variety: ${coffeeData.variety}`}/>
+                {Array.isArray(coffeeData.producer) === true ? <Chip label={`Producer: ${coffeeData.producer.join(', ')}`}/> : <Chip label={`Producer: ${coffeeData.producer}`}/>}
+                <Chip label={`Variety: ${coffeeData.variety.join(', ')}`}/>
                 <Chip label={`Process: ${coffeeData.process}`}/>
                 <Chip label={`Taste Notes: ${coffeeData.taste_notes}`}/>
                 <Chip label={`Roaster: ${coffeeData.roaster}`}/>
@@ -420,7 +421,7 @@ export default function CoffeePage({ coffeeData }) {
             </Typography>
             <Stack direction="row" spacing={1}>
                 {/*TODO: add conditional rendering depending on min/max values for coffee_in*/}
-                <Chip label={`Coffee in: ${coffeeData.coffee_in}g`}/>
+                {Object.hasOwn(coffeeData.coffee_in, 'min') && Object.hasOwn(coffeeData.coffee_in, 'max')? <Chip label={`Coffee in: ${coffeeData.coffee_in.min} - ${coffeeData.coffee_in.max}g`}/> : <Chip label={`Coffee in: ${coffeeData.coffee_in}g`}/>}
                 <Chip label={`Coffee out: ${coffeeData.coffee_out}g`}/>
                 <Chip label={`Extraction time: ${coffeeData.extraction_time?.min} - ${coffeeData.extraction_time?.max}s`}/>
             </Stack>

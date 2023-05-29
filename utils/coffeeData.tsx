@@ -799,6 +799,7 @@ export const CoffeeData = [
 ]
 export const CoffeeRecipes = [
     {
+        "brewing_ratio": "1:2.4",
         "coffee_in": {
             "max": "17.5",
             "min": "17.0"
@@ -809,9 +810,10 @@ export const CoffeeRecipes = [
             "min": 25
         },
         "id": "recipes:araku",
-        "water_in": null
+        "taste_notes": null
     },
     {
+        "brewing_ratio": "1:2.4",
         "coffee_in": "16.5",
         "coffee_out": 40,
         "extraction_time": {
@@ -819,9 +821,10 @@ export const CoffeeRecipes = [
             "min": 29
         },
         "id": "recipes:bombe",
-        "water_in": 40
+        "taste_notes": null
     },
     {
+        "brewing_ratio": "1:2.4",
         "coffee_in": "17.5",
         "coffee_out": 40,
         "extraction_time": {
@@ -829,9 +832,54 @@ export const CoffeeRecipes = [
             "min": 26
         },
         "id": "recipes:la_maravilla",
-        "water_in": null
+        "taste_notes": null
     },
     {
+        "brewing_ratio": "1:2.3",
+        "coffee_in": "17.5",
+        "coffee_out": 40,
+        "extraction_time": {
+            "max": 30,
+            "min": 28
+        },
+        "id": "recipes:monte_alegre",
+        "taste_notes": null
+    },
+    {
+        "brewing_ratio": "1:2.3",
+        "coffee_in": 17,
+        "coffee_out": 40,
+        "extraction_time": {
+            "max": 30,
+            "min": 28
+        },
+        "id": "recipes:neunbar",
+        "taste_notes": null
+    },
+    {
+        "brewing_ratio": "1:2.3",
+        "coffee_in": "17.5",
+        "coffee_out": 40,
+        "extraction_time": {
+            "max": 30,
+            "min": 28
+        },
+        "id": "recipes:nobile",
+        "taste_notes": null
+    },
+    {
+        "brewing_ratio": "1:2.3",
+        "coffee_in": 17,
+        "coffee_out": 40,
+        "extraction_time": {
+            "max": 27,
+            "min": 25
+        },
+        "id": "recipes:scheingold",
+        "taste_notes": null
+    },
+    {
+        "brewing_ratio": "1:2.4",
         "coffee_in": {
             "max": "17.5",
             "min": "17.0"
@@ -842,6 +890,6 @@ export const CoffeeRecipes = [
             "min": 26
         },
         "id": "recipes:sechs_a",
-        "water_in": null
+        "taste_notes": null
     }
 ]

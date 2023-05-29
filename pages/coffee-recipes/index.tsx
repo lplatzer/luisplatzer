@@ -3,17 +3,13 @@ import Box from "@mui/material/Box";
 import {Chip, Typography} from "@mui/material";
 import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
 import * as React from "react";
-import {CoffeeData} from "../../utils/coffeeData";
-
-function GetBrewTime(params) {
-    return `${params.row.extractionTime?.min} - ${params.row.extractionTime?.max}`;
-}
+import {CoffeeData, CoffeeRecipes} from "../../utils/coffeeData";
 
 function GetTasteNotes(params) {
     let result = [];
 
     for(let i in params.row.tasteNotes)
-        result.push([params.row.tasteNotes [i]]);
+        result.push([params.row.tasteNotes[i]]);
     return (
         <div>
             {/*    could you change this so that you can click on a taste note to filter coffees by that taste note?
@@ -89,6 +85,78 @@ const columns: GridColDef[] = [
     // }
 ];
 
+const espRows = CoffeeRecipes;
+// TODO: add name field to coffeeData for easier rendering
+const espColumns: GridColDef[] = [
+    {
+        field: 'id',
+        headerName: 'Coffee',
+        width: 200,
+        renderCell: (params) => (
+            <Link href={`/coffee-recipes/elbgold/${params.value.split(":").pop().replace(' ', '-').toLowerCase()}`}>{params.value}</Link>
+        ),
+        // Once the database integration is complete, this should work by using the name instead of the ID without the need of a value getter.
+        valueGetter: (params) => {
+            return `${params.row.id.split(":").pop().replace('_', ' ')}`;
+        }
+    },
+    {
+        field: 'type',
+        headerName: 'Roast',
+        width: 150,
+        editable: false,
+    },
+    {
+        field: 'coffee_in',
+        headerName: 'Dose',
+        width: 120,
+        valueGetter: (params) => {
+            return Object.hasOwn(params.row.coffee_in, 'min') && Object.hasOwn(params.row.coffee_in, 'max') ? `${params.row.coffee_in.min} - ${params.row.coffee_in.max}g` : `${params.row.coffee_in}g` ;
+        }
+    },
+    {
+        field: 'coffee_out',
+        headerName: 'Yield',
+        width: 120,
+        valueGetter: (params) => {
+            return `${params.row.coffee_out}g`
+        }
+    },
+    {
+        field: 'extraction_time',
+        headerName: 'Extraction time',
+        width: 120,
+        valueGetter: (params) => {
+            return `${params.row.extraction_time.min} - ${params.row.extraction_time.max}s`
+        }
+    },
+    {
+        field: 'brewing_ratio',
+        headerName: 'Brewing Ratio',
+        width: 120,
+    },
+    {
+        field: 'origin.country',
+        headerName: 'Origin',
+        width: 150,
+    },
+    {
+        field: 'process',
+        headerName: 'Process',
+        width: 250,
+    },
+    {
+        field: 'producer',
+        headerName: 'Producer',
+        width: 300,
+    },
+    {
+        field: 'roaster',
+        headerName: 'Roaster',
+        width: 150,
+    },
+];
+
 export default function coffeeRecipes() {
     return(
         <Box>
@@ -110,6 +178,18 @@ export default function coffeeRecipes() {
                     <DataGrid
                         rows={rows}
                         columns={columns}
+                        pageSizeOptions={[30]}
+                        disableRowSelectionOnClick
+                        /*replace the Toolbar by Switch or similar other external button/thing*/
+                    />
+                </Box>
+                <Typography variant="h2" component="h2">
+                    Espresso recipes at a glance
+                </Typography>
+                <Box sx={{height: 800, width: '100%', pt: 1}}>
+                    <DataGrid
+                        rows={espRows}
+                        columns={espColumns}
                         pageSizeOptions={[30]}
                         disableRowSelectionOnClick
                         /*replace the Toolbar by Switch or similar other external button/thing*/
