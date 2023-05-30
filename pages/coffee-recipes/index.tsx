@@ -5,25 +5,25 @@ import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
 import * as React from "react";
 import {CoffeeData, CoffeeRecipes} from "../../utils/coffeeData";
 
-function GetTasteNotes(params) {
-    let result = [];
-
-    for(let i in params.row.tasteNotes)
-        result.push([params.row.tasteNotes[i]]);
-    return (
-        <div>
-            {/*    could you change this so that you can click on a taste note to filter coffees by that taste note?
-                could also be applied to the cwm.com coffee origin list/ roaster database, where you can find/quickly filter
-                coffees according to your preferences.
-                TODO: use onRowClick instead of Link component in coffee field, make entire row clickable to get to coffee page
-        */}
-            {result.map((text) => (
-                // TODO: design differently; current design takes up too much space for multiple fields
-                <Chip label={text}/>
-            ))}
-        </div>
-    )
-}
+// function GetTasteNotes(params) {
+//     let result = [];
+//
+//     for(let i in params.row.tasteNotes)
+//         result.push([params.row.tasteNotes[i]]);
+//     return (
+//         <div>
+//             {/*    could you change this so that you can click on a taste note to filter coffees by that taste note?
+//                 could also be applied to the cwm.com coffee origin list/ roaster database, where you can find/quickly filter
+//                 coffees according to your preferences.
+//                 TODO: use onRowClick instead of Link component in coffee field, make entire row clickable to get to coffee page
+//         */}
+//             {result.map((text) => (
+//                 // TODO: design differently; current design takes up too much space for multiple fields
+//                 <Chip label={text}/>
+//             ))}
+//         </div>
+//     )
+// }
 
 const rows = CoffeeData;
 

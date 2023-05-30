@@ -1,5 +1,4 @@
 import Box from "@mui/material/Box";
-import {} from "../../../utils/data.service";
 import {Accordion, AccordionDetails, AccordionSummary, Chip, Stack, Typography} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import * as React from "react";
@@ -16,9 +15,8 @@ export async function getStaticProps({ params }) {
 // todo: clean up conversion into url-encoded data types, as well as conversion to find items in raw data; either convert data at retrieval and then find by resulting string or the other way around,
 // currently doing both multiple times in:coffee-recipes/index, coffeeData.tsx, elbgold/[slug].tsx
 export async function getStaticPaths() {
-    const res = CoffeeNames;
-    const paths = res.map((item) => ({
-        params: { id: item.id.split(":").pop().replace('_', '-')},
+    const paths = CoffeeNames.map((item) => ({
+        params: { id: item.id.split(":")?.pop()?.replace('_', '-')},
     }));
     return {
         paths,
@@ -32,7 +30,6 @@ export default function CoffeePage({ coffeeData }) {
         setExpanded(isExpanded ? panel : false);
     };
     const blendData = [];
-    console.log(blendData);
     const filterPage = (
         <Box>
             <Typography variant="h5" component="h5">
