@@ -404,11 +404,11 @@ export default function CoffeePage({ coffeeData }) {
             <Stack direction="row" spacing={1}>
                 {/*TODO: map array items with proper formatting*/}
                 {/*TODO: join origin country and region, add spacer between each combo*/}
-                {Array.isArray(coffeeData.origin.country) === true ? <Chip label={`Origin: ${coffeeData.origin.country.join(', ')}, ${coffeeData.origin.detail.join(', ')}`}/> : <Chip label={`Origin: ${coffeeData.origin.country}, ${coffeeData.origin.detail}`}/>}
-                {Array.isArray(coffeeData.origin.country) === true ? <Chip label={`Origin: ${blendData.join(', ')}`}/> : <Chip label={`Origin: ${coffeeData.origin.country}, ${coffeeData.origin.detail}`}/>}
+                {Array.isArray(coffeeData.origin.country) ? <Chip label={`Origin: ${coffeeData.origin.country.join(', ')}, ${coffeeData.origin.detail.join(', ')}`}/> : <Chip label={`Origin: ${coffeeData.origin.country}, ${coffeeData.origin.detail}`}/>}
+                {Array.isArray(coffeeData.origin.country) ? <Chip label={`Origin: ${blendData.join(', ')}`}/> : <Chip label={`Origin: ${coffeeData.origin.country}, ${coffeeData.origin.detail}`}/>}
                 <Chip label={`Washing station: ${coffeeData.origin.station}`}/>
-                {Array.isArray(coffeeData.producer) === true ? <Chip label={`Producer: ${coffeeData.producer.join(', ')}`}/> : <Chip label={`Producer: ${coffeeData.producer}`}/>}
-                <Chip label={`Variety: ${coffeeData.variety.join(', ')}`}/>
+                {Array.isArray(coffeeData.producer) ? <Chip label={`Producer: ${coffeeData.producer.join(', ')}`}/> : <Chip label={`Producer: ${coffeeData.producer}`}/>}
+                {Array.isArray(coffeeData.variety) ? <Chip label={`Variety: ${coffeeData.variety.join(', ')}`}/> : <Chip label={`Variety: ${coffeeData.variety}`}/>}
                 <Chip label={`Process: ${coffeeData.process}`}/>
                 <Chip label={`Taste Notes: ${coffeeData.taste_notes}`}/>
                 <Chip label={`Roaster: ${coffeeData.roaster}`}/>
