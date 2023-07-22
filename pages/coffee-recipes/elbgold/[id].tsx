@@ -2,10 +2,12 @@ import Box from "@mui/material/Box";
 import {Accordion, AccordionDetails, AccordionSummary, Chip, Stack, Typography} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import * as React from "react";
-import {CoffeeNames, getCoffeeData} from "../../../utils/coffeeData";
+import {getCoffeeData} from "../../../utils/services/coffeeData.service";
+import {getPagePaths} from "../../../utils/services/pathData.service";
+
 
 export async function getStaticProps({ params }) {
-    const coffeeData = getCoffeeData(params.id);
+    const coffeeData = await getCoffeeData(params.id);
     return {
         props: {
             coffeeData
@@ -15,7 +17,8 @@ export async function getStaticProps({ params }) {
 // todo: clean up conversion into url-encoded data types, as well as conversion to find items in raw data; either convert data at retrieval and then find by resulting string or the other way around,
 // currently doing both multiple times in:coffee-recipes/index, coffeeData.tsx, elbgold/[slug].tsx
 export async function getStaticPaths() {
-    const paths = CoffeeNames.map((item) => ({
+    const req = await getPagePaths("coffeePaths");
+    const paths = req?.map((item) => ({
         params: { id: item.id.split(":")?.pop()?.replace('_', '-')},
     }));
     return {
@@ -25,6 +28,7 @@ export async function getStaticPaths() {
 }
 
 export default function CoffeePage({ coffeeData }) {
+    console.log(coffeeData.dose.min);
     const [expanded, setExpanded] = React.useState<string | false>(false);
     const handleChange = (panel: string) => (event: React.SyntheticEvent, isExpanded: boolean) => {
         setExpanded(isExpanded ? panel : false);
@@ -417,13 +421,13 @@ export default function CoffeePage({ coffeeData }) {
                 Recipe
             </Typography>
             <Stack direction="row" spacing={1}>
-                {/*TODO: add conditional rendering depending on min/max values for coffee_in*/}
-                {Object.hasOwn(coffeeData.coffee_in, 'min') && Object.hasOwn(coffeeData.coffee_in, 'max')? <Chip label={`Coffee in: ${coffeeData.coffee_in.min} - ${coffeeData.coffee_in.max}g`}/> : <Chip label={`Coffee in: ${coffeeData.coffee_in}g`}/>}
-                <Chip label={`Coffee out: ${coffeeData.coffee_out}g`}/>
+                { typeof coffeeData.dose === "object" ? <Chip label={`Coffee in: ${coffeeData.dose.min} - ${coffeeData.dose?.max}g`}/> : <Chip label={`Coffee in: ${coffeeData.dose}g`}/>}
+                <Chip label={`Coffee out: ${coffeeData.yield}g`}/>
                 <Chip label={`Extraction time: ${coffeeData.extraction_time?.min} - ${coffeeData.extraction_time?.max}s`}/>
             </Stack>
         </Box>
     )
+
     return (
         <Box>
             <Typography variant="h4" component="h4">

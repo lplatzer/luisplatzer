@@ -1,10 +1,22 @@
+import * as React from "react";
 import Link from "../../components/Link";
 import Box from "@mui/material/Box";
 import {Chip, Typography} from "@mui/material";
-import {DataGrid, GridColDef, GridToolbar} from "@mui/x-data-grid";
-import * as React from "react";
+import {DataGrid, GridColDef} from "@mui/x-data-grid";
 import {CoffeeData, CoffeeRecipes} from "../../utils/coffeeData";
+import {getCoffeeData} from "../../utils/services/coffeeData.service";
+import {getPagePaths} from "../../utils/services/pathData.service";
 
+
+export async function getStaticProps({ params }) {
+    const coffeeData = await getCoffeeData();
+
+    return {
+        props: {
+            ...coffeeData,
+        }
+    }
+}
 // function GetTasteNotes(params) {
 //     let result = [];
 //
@@ -107,19 +119,19 @@ const espColumns: GridColDef[] = [
         editable: false,
     },
     {
-        field: 'coffee_in',
+        field: 'dose',
         headerName: 'Dose',
         width: 120,
         valueGetter: (params) => {
-            return Object.hasOwn(params.row.coffee_in, 'min') && Object.hasOwn(params.row.coffee_in, 'max') ? `${params.row.coffee_in.min} - ${params.row.coffee_in.max}g` : `${params.row.coffee_in}g` ;
+            return Object.hasOwn(params.row.dose, 'min') && Object.hasOwn(params.row.dose, 'max') ? `${params.row.dose.min} - ${params.row.dose.max}g` : `${params.row.dose}g` ;
         }
     },
     {
-        field: 'coffee_out',
+        field: 'yield',
         headerName: 'Yield',
         width: 120,
         valueGetter: (params) => {
-            return `${params.row.coffee_out}g`
+            return `${params.row.yield}g`
         }
     },
     {
@@ -134,6 +146,10 @@ const espColumns: GridColDef[] = [
         field: 'brewing_ratio',
         headerName: 'Brewing Ratio',
         width: 120,
+        valueGetter: (params) => {
+            return `${params.row.brewing_ratio.numerator}:${params.row.brewing_ratio.denominator}`
+            return Object.hasOwn(params.row.dose, 'min') && Object.hasOwn(params.row.dose, 'max') ? `${params.row.dose.min} - ${params.row.dose.max}g` : `${params.row.dose}g`;
+        }
     },
     {
         field: 'origin.country',
@@ -157,7 +173,7 @@ const espColumns: GridColDef[] = [
     },
 ];
 
-export default function coffeeRecipes() {
+export default function coffeeRecipes({ coffeeData }) {
     return(
         <Box>
             <Box>
@@ -186,7 +202,7 @@ export default function coffeeRecipes() {
                 <Typography variant="h2" component="h2">
                     Espresso recipes at a glance
                 </Typography>
-                <Box sx={{height: 800, width: '100%', pt: 1}}>
+                <Box sx={{height: 534, width: '100%', pt: 1}}>
                     <DataGrid
                         rows={espRows}
                         columns={espColumns}
