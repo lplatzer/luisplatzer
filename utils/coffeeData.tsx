@@ -1,84 +1,76 @@
-export function getCoffeeData(id) {
-    const data = CoffeeData.find(elem => elem.id === `coffees:${id.replace('-', '_')}`);
-    const recipes = CoffeeRecipes.find(elem => elem.id === `recipes:${id.replace('-', '_')}`);
-    return {
-        ...data,
-        ...recipes,
-    }
-}
 
 export const CoffeeNames = [
     {
-        "id": "coffees:araku"
+        "id": "coffees:araku",
     },
     {
-        "id": "coffees:bella_vista"
+        "id": "coffees:bella_vista",
     },
     {
-        "id": "coffees:bombe"
+        "id": "coffees:bombe",
     },
     {
-        "id": "coffees:bombe_anaerobic"
+        "id": "coffees:bombe_anaerobic",
     },
     {
-        "id": "coffees:denbi_uddo"
+        "id": "coffees:denbi_uddo",
     },
     {
-        "id": "coffees:el_campo"
+        "id": "coffees:el_campo",
     },
     {
-        "id": "coffees:el_moreno"
+        "id": "coffees:el_moreno",
     },
     {
-        "id": "coffees:el_pino_geisha"
+        "id": "coffees:el_pino_geisha",
     },
     {
-        "id": "coffees:kiaga_aa"
+        "id": "coffees:kiaga_aa",
     },
     {
-        "id": "coffees:kichawir"
+        "id": "coffees:kichawir",
     },
     {
-        "id": "coffees:la_dalia"
+        "id": "coffees:la_dalia",
     },
     {
-        "id": "coffees:la_maravilla"
+        "id": "coffees:la_maravilla",
     },
     {
-        "id": "coffees:la_pachuca"
+        "id": "coffees:la_pachuca",
     },
     {
-        "id": "coffees:las_nubes"
+        "id": "coffees:las_nubes",
     },
     {
-        "id": "coffees:las_nubes_geisha"
+        "id": "coffees:las_nubes_geisha",
     },
     {
-        "id": "coffees:los_placeres"
+        "id": "coffees:los_placeres",
     },
     {
-        "id": "coffees:mischgold"
+        "id": "coffees:mischgold",
     },
     {
-        "id": "coffees:monte_alegre"
+        "id": "coffees:monte_alegre",
     },
     {
-        "id": "coffees:neunbar"
+        "id": "coffees:neunbar",
     },
     {
-        "id": "coffees:nobile"
+        "id": "coffees:nobile",
     },
     {
-        "id": "coffees:sarongge"
+        "id": "coffees:sarongge",
     },
     {
-        "id": "coffees:scheingold"
+        "id": "coffees:scheingold",
     },
     {
-        "id": "coffees:sechs_a"
+        "id": "coffees:sechs_a",
     },
     {
-        "id": "coffees:werka"
+        "id": "coffees:werka",
     }
 ]
 
@@ -799,97 +791,121 @@ export const CoffeeData = [
 ]
 export const CoffeeRecipes = [
     {
-        "brewing_ratio": "1:2.4",
-        "coffee_in": {
+        "brewing_ratio": {
+            "denominator": "2.4",
+            "numerator": 1
+        },
+        "dose": {
             "max": "17.5",
             "min": "17.0"
         },
-        "coffee_out": 40,
         "extraction_time": {
             "max": 27,
             "min": 25
         },
         "id": "recipes:araku",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     },
     {
-        "brewing_ratio": "1:2.4",
-        "coffee_in": "16.5",
-        "coffee_out": 40,
+        "brewing_ratio": {
+            "denominator": "2.4",
+            "numerator": 1
+        },
+        "dose": "16.5",
         "extraction_time": {
             "max": 30,
             "min": 29
         },
         "id": "recipes:bombe",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     },
     {
-        "brewing_ratio": "1:2.4",
-        "coffee_in": "17.5",
-        "coffee_out": 40,
+        "brewing_ratio": {
+            "denominator": "2.4",
+            "numerator": 1
+        },
+        "dose": "17.5",
         "extraction_time": {
             "max": 28,
             "min": 26
         },
         "id": "recipes:la_maravilla",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     },
     {
-        "brewing_ratio": "1:2.3",
-        "coffee_in": "17.5",
-        "coffee_out": 40,
+        "brewing_ratio": {
+            "denominator": "2.3",
+            "numerator": 1
+        },
+        "dose": "17.5",
         "extraction_time": {
             "max": 30,
             "min": 28
         },
         "id": "recipes:monte_alegre",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     },
     {
-        "brewing_ratio": "1:2.3",
-        "coffee_in": 17,
-        "coffee_out": 40,
+        "brewing_ratio": {
+            "denominator": "2.3",
+            "numerator": 1
+        },
+        "dose": 17,
         "extraction_time": {
             "max": 30,
             "min": 28
         },
         "id": "recipes:neunbar",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     },
     {
-        "brewing_ratio": "1:2.3",
-        "coffee_in": "17.5",
-        "coffee_out": 40,
+        "brewing_ratio": {
+            "denominator": "2.3",
+            "numerator": 1
+        },
+        "dose": "17.5",
         "extraction_time": {
             "max": 30,
             "min": 28
         },
         "id": "recipes:nobile",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     },
     {
-        "brewing_ratio": "1:2.3",
-        "coffee_in": 17,
-        "coffee_out": 40,
+        "brewing_ratio": {
+            "denominator": "2.3",
+            "numerator": 1
+        },
+        "dose": "17.0",
         "extraction_time": {
             "max": 27,
             "min": 25
         },
         "id": "recipes:scheingold",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     },
     {
-        "brewing_ratio": "1:2.4",
-        "coffee_in": {
+        "brewing_ratio": {
+            "denominator": "2.4",
+            "numerator": 1
+        },
+        "dose": {
             "max": "17.5",
             "min": "17.0"
         },
-        "coffee_out": 40,
         "extraction_time": {
             "max": 28,
             "min": 26
         },
         "id": "recipes:sechs_a",
-        "taste_notes": null
+        "taste_notes": null,
+        "yield": 40
     }
 ]
