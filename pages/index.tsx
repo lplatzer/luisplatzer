@@ -1,5 +1,5 @@
 import { Card, Typography, Box } from "@mui/material";
-import Image from "next/image";
+import Image from "next/legacy/image";
 import Link from "../components/Link";
 import personalPic from "../public/images/platzer_luis_cropped.jpg";
 import Blog from "./blog";

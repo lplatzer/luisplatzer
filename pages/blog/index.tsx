@@ -1,6 +1,6 @@
 import { Card, CardActionArea, CardContent, CardMedia, Container, Grid, Paper, Typography, Box } from "@mui/material";
 import Link from "../../components/Link";
-import Image from "next/image";
+import Image from "next/legacy/image";
 
 // TODO: add getStaticProps ..Paths, etc. and create dynamic routes for all blog posts
 function MainFeaturedPost(){
