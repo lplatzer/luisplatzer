@@ -30,23 +30,23 @@ MyDocument.getInitialProps = async (ctx) => {
   // Resolution order
   //
   // On the server:
-  // 1. app.getInitialProps
+  // 1. app-dir-wip.getInitialProps
   // 2. page.getInitialProps
   // 3. document.getInitialProps
-  // 4. app.render
+  // 4. app-dir-wip.render
   // 5. page.render
   // 6. document.render
   //
   // On the server with error:
   // 1. document.getInitialProps
-  // 2. app.render
+  // 2. app-dir-wip.render
   // 3. page.render
   // 4. document.render
   //
   // On the client
-  // 1. app.getInitialProps
+  // 1. app-dir-wip.getInitialProps
   // 2. page.getInitialProps
-  // 3. app.render
+  // 3. app-dir-wip.render
   // 4. page.render
 
   const originalRenderPage = ctx.renderPage;

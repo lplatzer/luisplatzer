@@ -61,7 +61,7 @@ export default function About(){
                 <Typography variant="body1">
                     {/*TODO: CV x*/}
                     <br/>
-                    Want to get in touch or just have a chat? You can shoot me a message <Link href="/contact">here.</Link>
+                    some text about contacting me
                 </Typography>
                 {/*TODO: render content dynamically, use map function for each accordion */}
                 <Accordion expanded={expanded ==="panel1"} onChange={handleChange('panel1')}>

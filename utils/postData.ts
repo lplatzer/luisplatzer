@@ -1,11 +1,12 @@
-import fs from 'fs'
+import fs, {readdirSync} from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
 
 const postsDirectory = path.join(process.cwd(), 'posts')
 
-export function getSortedPostsData() {
+
+export function getSortedPostsDataOld() {
     // Get file names under /posts
     const fileNames = fs.readdirSync(postsDirectory)
     const allPostsData = fileNames.map(fileName => {
@@ -60,6 +61,15 @@ export function getAllPostIds() {
     });
 }
 
+// function getAllPosts() {
+//     const fileNames = readdirSync(postsDirectory);
+//     const postIds =
+// }
+export async function getPostFrontmatter( ) {
+    const fullPath = path.join(postsDirectory, `${id}.md`)
+    const fileContents = fs.readdirSync(fullPath, 'utf8');
+}
+
 export async function getPostData(id) {
     const fullPath = path.join(postsDirectory, `${id}.md`);
     const fileContents = fs.readFileSync(fullPath, 'utf8');
@@ -73,3 +83,4 @@ export async function getPostData(id) {
         ...matterResult.data,
     };
 }
+

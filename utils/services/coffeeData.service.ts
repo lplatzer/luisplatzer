@@ -1,6 +1,7 @@
 import {CoffeeData, CoffeeRecipes} from "../coffeeData";
-/*
-* @params: id
+
+/**
+* @param {string} id - id of the Coffee to find; if no id is passed, an array containing all data is returned.
 */
 export async function getCoffeeData(id?: string) {
     if (id) {
